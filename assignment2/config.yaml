@@ -1,0 +1,29 @@
+interval: 1m
+
+cities:
+  - name: "Delhi"
+    tempThreshold:
+      maximumTemp: 45.0
+      breach: 2
+  - name: "Mumbai"
+    tempThreshold:
+      maximumTemp: 35.0
+      breach: 1
+  - name: "Chennai"
+    tempThreshold:
+      maximumTemp: 37.0
+      breach: 3
+  - name: "Bangalore"
+    tempThreshold:
+      maximumTemp: 29.0
+      breach: 2
+  - name: "Kolkata"
+    tempThreshold:
+      maximumTemp: 42.0
+      breach: 2
+  - name: "Hyderabad"
+    tempThreshold:
+      maximumTemp: 35.0
+      breach: 3
+
+tempUnit: "C"
