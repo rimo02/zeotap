@@ -12,17 +12,11 @@
 cd assignment1
 ```
 
-3. Create a .env file and paste the following code
-
-   ```
-   MONGO_URI = mongodb://mongo:27017
-   ```
-
-4.
+3.
 
 ```
 docker-compose up --build
 ```
 
 The application should start running
-   Now open your web Browser and run `http://localhost:8000/`.
+Now open your web Browser and run `http://localhost:8000/`.
