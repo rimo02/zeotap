@@ -48,7 +48,10 @@ func FetchWeatherData(cfg config.Config) {
 				continue
 			}
 			data.Main.Temp = ConvertTemp(data.Main.Temp, cfg.TempUnit)
-			tempData[i] = data
+			tempData[i] = map[string]interface{}{
+				"city": city,
+				"data": data,
+			}
 			UpdateDailyWeatherdata(city.Name, data)
 
 			CheckThreshold(city.Name, data, city.TempThreshold)
