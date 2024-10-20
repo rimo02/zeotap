@@ -6,12 +6,24 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8070:8070"
-    environment:
-      - apikey=your_api_key_here
+    env_file:
+      - .env
     depends_on:
       - mongo
+    networks:
+      - app-network
 
   mongo:
     image: mongo:latest
     ports:
       - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - app-network
+
+volumes:
+  mongo_data:
+
+networks:
+  app-network:

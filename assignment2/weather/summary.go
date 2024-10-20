@@ -42,7 +42,7 @@ func FetchWeatherData(cfg config.Config) {
 		tempData := make([]interface{}, len(cfg.Cities))
 
 		for i, city := range cfg.Cities {
-			data, err := FetchWeather(strings.ToLower(city.Name), os.Getenv("apiKey"))
+			data, err := FetchWeather(strings.ToLower(city.Name), os.Getenv("API_KEY"))
 			if err != nil {
 				fmt.Printf("Error fetching weather for %s: %v\n", city.Name, err)
 				continue
@@ -58,9 +58,9 @@ func FetchWeatherData(cfg config.Config) {
 		AllWeatherData = tempData
 		Mu.Unlock()
 
-		// if time.Now().Hour() == 0 && time.Now().Minute() == 0 {
-		// }
-		RollUpDailyWeatherData()
+		if time.Now().Hour() == 0 && time.Now().Minute() == 0 {
+			RollUpDailyWeatherData()
+		}
 	}
 }
 

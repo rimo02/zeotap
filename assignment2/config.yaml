@@ -1,4 +1,4 @@
-interval: 5m
+interval: 1m
 
 cities:
   - name: "Delhi"

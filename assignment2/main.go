@@ -20,7 +20,7 @@ func init() {
 		panic(err1)
 	}
 
-	_, err := weather.FetchWeather("London", os.Getenv("apiKey"))
+	_, err := weather.FetchWeather("London", os.Getenv("API_KEY"))
 	if err != nil {
 		log.Printf("Error fetching weather data: %v\n", err)
 		log.Fatal("Unable to connect to OpenWeatherMap API. Stopping the program.\n")
@@ -31,7 +31,6 @@ func init() {
 }
 func main() {
 	cfg := config.LoadConfig()
-	fmt.Println(cfg)
 	go weather.FetchWeatherData(cfg)
 
 	http.HandleFunc("/weather", func(w http.ResponseWriter, r *http.Request) {
