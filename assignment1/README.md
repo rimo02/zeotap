@@ -28,4 +28,4 @@ docker-compose up --build
 ```
 
 The application should start running at port 8000
-Now open your web Browser and run ```http://localhost:8000/````.
+Now open your web Browser and run ``` http://localhost:8000/ ````.

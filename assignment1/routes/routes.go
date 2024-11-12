@@ -8,5 +8,5 @@ import (
 var RegisterRoutes = func(c *gin.Engine) {
 	c.POST("/create", controllers.CreateRule)
 	c.POST("/combine", controllers.CombineRules)
-	c.GET("evaluate", controllers.EvaluateRule)
+	c.GET("/evaluate", controllers.EvaluateRule)
 }
