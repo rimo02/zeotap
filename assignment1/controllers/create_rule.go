@@ -34,7 +34,12 @@ func CreateRule(c *gin.Context) {
 		RuleID:     body.RuleID,
 	}
 	collection := database.GetCollection(database.Client, "rule")
-	collection.InsertOne(context.TODO(), newRule)
+	res, err := collection.InsertOne(context.TODO(), newRule)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to insert rule into the database"})
+		return
+	}
+	fmt.Printf("Inserted rule with ID: %v\n", res.InsertedID)
 
 	c.JSON(http.StatusCreated, newRule)
 }
